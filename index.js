@@ -3,23 +3,37 @@ const express = require('express');
 
 const port = 8000;
 
-// // to use layouts
-// const expressLayouts = require('express-ejs-layouts');
+// to use layouts
+const expressLayouts = require('express-ejs-layouts');
 
 const app = express();
 
-// // use static files
-// app.use(express.static('./assets'));
+// to use sass
+const sassMiddleware = require('node-sass-middleware');
 
-// // to extract styles and scripts of subpages in layouts
-// app.set('layouts extractStyles',true);
-// app.set('layouts extractScripts',true);
+// using sass middleware
+app.use(sassMiddleware({
+    src: './assets/scss',
+    dest: './assets/css',
+    debug: true,
+    outputStyle: 'extended',
+    prefix: '/css'
+}));
 
-// app.use(expressLayouts);
 
-// // set up view engine and views
-// app.use('view engine','ejs');
-// app.use('views', './views'); 
+// use static files
+app.use(express.static('./assets'));
+
+// to extract styles and scripts of subpages in layouts
+app.set('layout extractStyles',true);
+app.set('layout extractScripts',true);
+
+// use express layouts
+app.use(expressLayouts);
+
+// set up view engine and views
+app.set('view engine','ejs');
+app.set('views', './views'); 
 
 // use (main) express router
 app.use('/',require('./routes/index'));
