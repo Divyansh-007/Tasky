@@ -8,6 +8,9 @@ const expressLayouts = require('express-ejs-layouts');
 
 const app = express();
 
+// connecting database
+const db = require('./config/mongoose');
+
 // to use sass
 const sassMiddleware = require('node-sass-middleware');
 
