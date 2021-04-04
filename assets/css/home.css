@@ -1,12 +1,12 @@
 body {
   background: url("../images/main.jpg"); }
-  body div {
+  body #heading {
     position: relative;
     top: 25%;
     margin: 0% 5%;
     background: linear-gradient(319deg, #f9f4f4, #463f3fdb);
     border-radius: 30px; }
-    body div h1 {
+    body #heading h1 {
       text-align: center;
       color: #313335;
       font-size: 5rem;
