@@ -1,6 +1,9 @@
 // required libraries
 const express = require('express');
 
+// for cookie
+const cookieParser = require('cookie-parser');
+
 const port = 8000;
 
 // to use layouts
@@ -10,6 +13,16 @@ const app = express();
 
 // connecting database
 const db = require('./config/mongoose');
+
+// for cookie session
+const session = require('express-session');
+
+// for authentication using passport.js
+const passport = require('passport');
+const passportLocal = require('./config/passport-local-strategy');
+
+// to store cookie so as not to loose the user if server restarts
+const mongoStore = require('connect-mongo');
 
 // to use sass
 const sassMiddleware = require('node-sass-middleware');
@@ -23,6 +36,9 @@ app.use(sassMiddleware({
     prefix: '/css'
 }));
 
+// to use encoded input data and cookie
+app.use(express.urlencoded());
+app.use(cookieParser()); 
 
 // use static files
 app.use(express.static('./assets'));
@@ -37,6 +53,31 @@ app.use(expressLayouts);
 // set up view engine and views
 app.set('view engine','ejs');
 app.set('views', './views'); 
+
+// authentication
+app.use(session({
+    name: 'tasky',
+    secret: 'blahblahblah',
+    saveUninitialized: false,
+    resave: false,
+    cookie:{
+        maxAge: (1000 * 60 * 100)
+    },
+    // using mongo store
+    store: mongoStore.create(
+        {
+            mongoUrl: 'mongodb+srv://divyansh:divyansh@cluster0.exyj1.mongodb.net/tasky-development',
+            autoRemove: 'disabled'
+        }
+    )
+}));
+
+// initialize passport and session
+app.use(passport.initialize());
+app.use(passport.session());
+
+// setting authenticated user
+app.use(passport.setAuthenticatedUser);
 
 // use (main) express router
 app.use('/',require('./routes/index'));
