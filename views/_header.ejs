@@ -1,24 +1,29 @@
-<header>
-    Page Header
+<script src="https://kit.fontawesome.com/75cf4e84e0.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/css/header.css">
 
-    <ul>
-        <% if(locals.user){ %>
-            
-            <li><%= user.fname %></li>
-            <li>
-                <a href="/user/sign-out">Sign Out</a>
-            </li>
+<div class="header">
+    <div class="name_n_logo">
+        <i class="fas fa-clipboard-list fa-3x logo"></i>
+        <p class="name"><a href="/">Tasky</a></p>
+    </div>
 
-        <%}else{ %>
-            
-            <li>
-                <a href="/user/sign-in">Sign In</a>
-            </li>
-
-            <li>
-                <a href="/user/sign-up">Sign Up</a>
-            </li>
-
-        <%} %>
-    </ul>
-</header>
+    <nav>
+        <ul>
+            <% if(locals.user){ %> 
+                <li>
+                    <a href="/user/profile" style="color: white;"> <%= user.fname %> </a>
+                </li>
+                <li>
+                    <a href="/user/sign-out"> Sign Out</a>
+                </li>    
+            <% }else{ %> 
+                <li>
+                    <a href="/user/sign-in"> Sign In</a>
+                </li>    
+                <li>
+                    <a href="/user/sign-up"> Sign Up</a>
+                </li>    
+            <% } %>
+        </ul>
+    </nav>
+</div>
