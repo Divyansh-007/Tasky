@@ -5,7 +5,9 @@
     <p><i class="far fa-copyright"></i> Jaiswal Studio Work</p>
 
     <div class="related_links">
-        <a href="/">Home</a>
-        <a href="/user/profile">Profile</a>
+        <% if(locals.user){ %> 
+            <a href="/">Home</a>
+            <a href="/user/profile/<%= user.id %>">Profile</a>
+        <% } %>
     </div>
 </div>
