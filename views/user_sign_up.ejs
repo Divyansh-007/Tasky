@@ -3,16 +3,16 @@
 
 <form action="/user/create" method="POST">
     <span class="label">Name: </span>
-    <input type="text" name="fname" placeholder="Your First Name" required class="req_margin">
-    <input type="text" name="lname" placeholder="Your Last Name" required>
+    <input type="text" name="fname" placeholder="John" required class="left_margin">
+    <input type="text" name="lname" placeholder="Smith" required>
     <br>
     <span class="label">Email: </span>
-    <input type="email" name="email" placeholder="Your Email" required class="req_margin" style="margin-top: 10px;">
+    <input type="email" name="email" placeholder="johnSmith@gmail.com" required class="left_margin top_margin">
     <br>
     <span class="label">Password: </span>
-    <input type="password" name="password" placeholder="Password" required class="pass">
+    <input type="password" name="password" placeholder="Password" required class="pass top_margin">
     <br>
-    <input type="password" name="confirm_password" placeholder="Confirm Password" required class="cfm_pass">
+    <input type="password" name="confirm_password" placeholder="Confirm Password" required class="cfm_pass top top_margin">
     <br>
     <input type="submit" value="Sign Up" id="btn">
 </form>

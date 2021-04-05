@@ -2,28 +2,20 @@
   text-align: center; }
 
 form .label {
-  margin-left: 28%;
+  margin-left: 35%;
   font-size: 1.5rem; }
 
 form input {
-  font-size: 1.25rem;
-  border: none;
-  border-bottom: 0.5px solid black; }
+  font-size: 1.25rem; }
 
 form .left_margin {
-  margin-left: 3%; }
+  margin-left: 2.6%; }
 
 form .top_margin {
   margin-top: 10px; }
 
-form .pass {
-  margin-left: 0.5%; }
-
-form .cfm_pass {
-  margin-left: 36.25%; }
-
 form #btn {
-  margin-left: 46%;
+  margin-left: 47%;
   margin-top: 15px;
   font-size: 1.5rem;
   background: transparent;
