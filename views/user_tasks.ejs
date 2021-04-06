@@ -1,1 +1,98 @@
-<h1>User / Tasky</h1>
+<link rel="stylesheet" href="/css/user_tasks.css">
+
+<h1 class="text_center">Tasks</h1>
+
+<!-- Entry Form -->
+<form action="/task/createTask" method="POST">
+    <table class="table">
+        <tr>
+            <td class="text_center" colspan="2">
+            <h2>Description</h2>
+            <input class="descp" type="text" placeholder="What do you need to do ?" name="description" required>
+            </td>
+        </tr>
+        <tr>
+            <td class="text_center">
+                <h2>Category</h2>
+                <select class="ctg" name="category">
+                    <option value="Personal">Personal</option>
+                    <option value="Work">Work</option>
+                    <option value="School">School</option>
+                    <option value="Miscellaneous">Miscellaneous</option>
+                </select>
+            </td>
+            <td class="text_center">
+                <h2>Due Date</h2>
+                <input class="date" type="date" name="date" required>
+            </td>
+        </tr>
+    </table>
+
+    <!-- Action Buttons -->
+    <div class="btns">
+        <button class="add_btn" type="submit"><i class="fas fa-plus"></i>&nbsp; Add Task</button>
+        <div class="del_btn">
+            <a href="/task/delete-tasks"><i class="fas fa-trash-alt"></i>&nbsp; Delete Tasks</a>
+        </div>
+    </div>
+</form>
+
+<!-- Task List Diplay -->
+<div class="display">
+    <% for(let task of task_list){ %> 
+        <% if(task.user.id == locals.user.id){ %>
+            <!-- for completed tasks -->
+            <% if(task.status == 'completed'){ %>
+                <div class="task_item" style="background-color: beige;">
+                    <div class="item_info">
+                        <a class="check_mark" style="pointer-events: none;" href="/task/completeTask/<%= task._id %>"><i class="far fa-check-square" style="color: black;"></i></a>
+                        <div class="item_descp">
+                            <p style="font-size: 1.5rem;"><%= task.description %></p>
+                            <p style="font-size: 1.25rem;">
+                                <span><i class="far fa-calendar-alt"></i></span>
+                                <%= month_list[parseInt(task.date.substring(6,7)) - 1] + " " + task.date.substring(8,10) + " , " + task.date.substring(0,4) %> 
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item_ctg <%= task.category %>">
+                        <p><%= task.category %></p>
+                    </div>
+                </div>
+            <!-- for incomplete tasks -->
+            <% }else{ %> 
+                <div class="task_item">
+                    <div class="item_info">
+                        <a class="check_mark" href="/task/complete-task/<%= task._id %>"><i class="far fa-check-square"></i></a>
+                        <div class="item_descp">
+                            <p style="font-size: 1.5rem;"><%= task.description %></p>
+                            <p style="font-size: 1.25rem;">
+                                <span><i class="far fa-calendar-alt"></i></span>
+                                <%= month_list[parseInt(task.date.substring(6,7)) - 1] + " " + task.date.substring(8,10) + " , " + task.date.substring(0,4) %> 
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item_ctg <%= task.category %>">
+                        <p><%= task.category %></p>
+                    </div>
+                </div>
+            <% } %>
+        <% } %>
+    <% } %>
+
+    <!-- default task -->
+    <div class="task_item" style="background-color: beige;">
+        <div class="item_info">
+            <a class="check_mark" style="pointer-events: none;"><i class="far fa-check-square" style="color: black;"></i></a>
+            <div class="item_descp">
+                <p style="font-size: 1.5rem;">Task Description</p>
+                <p style="font-size: 1.25rem;">
+                    <span><i class="far fa-calendar-alt"></i></span>
+                    Jan 01 , 20XX
+                </p>
+            </div>
+        </div>
+        <div class="item_ctg miscellaneous">
+            <p>Default</p>
+        </div>
+    </div>
+</div>

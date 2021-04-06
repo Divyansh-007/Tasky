@@ -1,24 +1,22 @@
 #heading {
   text-align: center; }
 
-form .label {
-  margin-left: 35%;
-  font-size: 1.5rem; }
-
-form input {
-  font-size: 1.25rem; }
-
-form .left_margin {
-  margin-left: 2.6%; }
-
-form .top_margin {
-  margin-top: 10px; }
-
-form #btn {
-  margin-left: 47%;
-  margin-top: 15px;
-  font-size: 1.5rem;
-  background: transparent;
-  border: 1px solid black;
-  border-radius: 15px;
-  padding: 10px; }
+form {
+  margin-bottom: 21.8%; }
+  form .label {
+    margin-left: 35%;
+    font-size: 1.5rem; }
+  form input {
+    font-size: 1.25rem; }
+  form .left_margin {
+    margin-left: 2.6%; }
+  form .top_margin {
+    margin-top: 10px; }
+  form #btn {
+    margin-left: 47%;
+    margin-top: 15px;
+    font-size: 1.5rem;
+    background: transparent;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 10px; }

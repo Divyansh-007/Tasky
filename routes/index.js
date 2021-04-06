@@ -12,5 +12,8 @@ router.get('/',homeController.home);
 // user page routing
 router.use('/user',require('./user'));
 
+// task page routing
+router.use('/task',require('./task'));
+
 module.exports = router;
 

@@ -1,0 +1,96 @@
+.text_center {
+  text-align: center; }
+
+.personal {
+  background-color: blue; }
+
+.work {
+  background-color: purple; }
+
+.school {
+  background-color: green; }
+
+.miscellaneous {
+  background-color: peru; }
+
+.table {
+  margin: 0% 26%;
+  width: auto; }
+  .table .descp {
+    font-size: 1.5rem;
+    width: 40rem;
+    margin-bottom: 1%;
+    background: transparent;
+    border: none;
+    border-bottom: 0.5px solid lightgrey; }
+  .table .ctg {
+    font-size: 1.25rem;
+    width: 12rem;
+    border: 0.5px solid lightgrey; }
+  .table .date {
+    font-size: 1.25rem;
+    width: 12rem;
+    border: 0.5px solid lightgrey; }
+
+.btns {
+  display: flex;
+  align-items: center;
+  height: auto;
+  width: 25rem;
+  margin-top: 2%;
+  margin-left: 35%; }
+  .btns .add_btn {
+    background-color: black;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1.5rem;
+    padding: 1rem;
+    width: 14rem; }
+  .btns .del_btn {
+    background-color: red;
+    border-radius: 5px;
+    height: 2rem;
+    width: 12rem;
+    font-size: 1.5rem;
+    padding: 1rem;
+    text-align: center;
+    margin-left: 2%; }
+    .btns .del_btn a {
+      text-decoration: none;
+      color: white; }
+
+.display {
+  margin: 5% 18%;
+  height: auto;
+  width: 55rem; }
+  .display .task_item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 0.5px solid lightgray;
+    /* background-color: beige; for disabled*/ }
+    .display .task_item .item_info {
+      display: flex;
+      align-items: center;
+      margin: 2%;
+      height: 8rem;
+      width: 30rem; }
+    .display .task_item .check_mark {
+      font-size: 2.5rem;
+      /* pointer-events: none;  for disabled*/ }
+      .display .task_item .check_mark i {
+        color: greenyellow; }
+    .display .task_item .item_descp {
+      margin-left: 8.5%;
+      width: auto; }
+    .display .task_item .item_ctg {
+      height: 3rem;
+      width: 8rem;
+      margin-right: 2%;
+      text-align: center; }
+      .display .task_item .item_ctg p {
+        margin-top: 10%;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: white; }

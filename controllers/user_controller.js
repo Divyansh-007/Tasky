@@ -1,5 +1,8 @@
 // importing model to be used
 const User = require('../models/user');
+const Task = require('../models/task');
+
+var monthList = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
 // profile page
 module.exports.profile = function(req,res){
@@ -9,16 +12,16 @@ module.exports.profile = function(req,res){
             user: user
         });    
     });
-    
-    // return res.render('user_profile',{
-    //     title: 'User | Profile'
-    // });
 }
 
 // home page
 module.exports.home = function(req,res){
-    return res.render('user_tasks',{
-        title: 'User | Tasks'
+    Task.find({}).populate('user').exec(function(err,tasks){
+        return res.render('user_tasks',{
+            title: 'User | Tasks',
+            month_list: monthList,
+            task_list: tasks
+        });    
     });
 }
 
