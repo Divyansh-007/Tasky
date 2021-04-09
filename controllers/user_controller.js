@@ -50,6 +50,8 @@ module.exports.signIn = function(req,res){
 // signing up
 module.exports.create = function(req,res){
     if(req.body.password != req.body.confirm_password){
+        req.flash('error','Passwords do not match !!');
+        req.flash('error',' Try Again..');
         return res.redirect('back');
     }
 
@@ -60,6 +62,8 @@ module.exports.create = function(req,res){
             User.create(req.body,function(er,user){
                 if(err){console.log('error in creating the user while signing up'); return}
 
+                req.flash('success', 'Signed Up Successfully!!');
+                req.flash('success',' Please Log In to Continue....');
                 return res.redirect('/user/sign-in');
             });
         }else{
@@ -70,12 +74,14 @@ module.exports.create = function(req,res){
 
 // signing in
 module.exports.createSession = function(req,res){
+    req.flash('success','Logged In Successfully!!');
     return res.redirect('/user/home');
 }
 
 // signing out
 module.exports.destroySession = function(req,res){
     req.logout();
+    req.flash('success','Logged Out Successfully!!');
 
     return res.redirect('/');
 }

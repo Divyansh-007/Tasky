@@ -14,6 +14,7 @@ module.exports.create = function(req,res){
             console.log('error in creating task');
         }
 
+        req.flash('success','Task Created!!');
         return res.redirect('back');
     });
 }
@@ -28,6 +29,7 @@ module.exports.complete = function(req,res){
             return;
         }
 
+        req.flash('success','Task Completed!!');
         return res.redirect('back');
     });   
 }
@@ -39,6 +41,7 @@ module.exports.destroy = function(req,res){
             console.log('error!!');
         }
 
+        req.flash('success','Completed Tasks Deleted....');
         return res.redirect('back');
     });
 }
