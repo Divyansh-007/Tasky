@@ -4,20 +4,23 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const User = require('../models/user');
 
-// new authentication
+// new authentication with flash message
 passport.use(new LocalStrategy(
     {
-        usernameField: 'email'
+        usernameField: 'email',
+        passReqToCallback: true
     },
-    function(email,password,done){
+    function(req,email,password,done){
         User.findOne({email : email},function(err,user){
             if(err){
-                console.log('error in finding the user');
+                req.flash('error',err);
+                // console.log('error in finding the user');
                 return done(err);
             }
 
             if(!user || user.password != password){
-                console.log('Invalid Email/Password');
+                req.flash('error','Invalid Email/Password');
+                // console.log('Invalid Email/Password');
                 return done(null,false);
             }
 
@@ -25,6 +28,28 @@ passport.use(new LocalStrategy(
         });
     }
 ));
+
+// // new authentication
+// passport.use(new LocalStrategy(
+//     {
+//         usernameField: 'email'
+//     },
+//     function(email,password,done){
+//         User.findOne({email : email},function(err,user){
+//             if(err){
+//                 console.log('error in finding the user');
+//                 return done(err);
+//             }
+
+//             if(!user || user.password != password){
+//                 console.log('Invalid Email/Password');
+//                 return done(null,false);
+//             }
+
+//             return done(null,user);
+//         });
+//     }
+// ));
 
 // serializing the user id for cookie
 passport.serializeUser(function(user,done){

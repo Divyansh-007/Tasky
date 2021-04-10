@@ -16,7 +16,10 @@ module.exports.profile = function(req,res){
 
 // home page
 module.exports.home = function(req,res){
-    Task.find({}).populate('user').exec(function(err,tasks){
+    Task.find({})
+    .sort('-createdAt')
+    .populate('user')
+    .exec(function(err,tasks){
         return res.render('user_tasks',{
             title: 'User | Tasks',
             month_list: monthList,
