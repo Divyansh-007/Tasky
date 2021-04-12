@@ -2,4 +2,15 @@
 <h1>User / Profile</h1>
 
 <h2>Name: &nbsp; <span><%= user.fname %> <%= user.lname %> </span> </h2>
-<h2 style="margin-bottom: 21.25%;">Email : &nbsp; <span><%= user.email %> </span> </h2>
+<h2>Email : &nbsp; <span><%= user.email %> </span> </h2>
+
+<form id="upd_form" action="/user/update/<%= user.id %>" method="POST">
+    <span>Name: </span>
+    <input type="text" name="fname" placeholder="John" value="<%= user.fname %>" required>
+    <input type="text" name="lname" placeholder="Smith" value="<%= user.lname %>" required>
+    <br>
+    <span>Email: </span>
+    <input type="email" name="email" placeholder="johnSmith@gmail.com" value="<%= user.email %>" required style="margin-top: 10px;">
+    <br>
+    <input type="submit" value="Update Profile" id="btn">
+</form>
