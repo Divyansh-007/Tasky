@@ -4,16 +4,6 @@ const Task = require('../models/task');
 
 var monthList = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
-// profile page
-module.exports.profile = function(req,res){
-    User.findById(req.params.id,function(err,user){
-        return res.render('user_profile',{
-            title: 'User | Profile',
-            user: user
-        });    
-    });
-}
-
 // home page
 module.exports.home = function(req,res){
     Task.find({})
@@ -26,6 +16,28 @@ module.exports.home = function(req,res){
             task_list: tasks
         });    
     });
+}
+
+// profile page
+module.exports.profile = function(req,res){
+    User.findById(req.params.id,function(err,user){
+        return res.render('user_profile',{
+            title: 'User | Profile',
+            user: user
+        });    
+    });
+}
+
+// update profile
+module.exports.update = function(req,res){
+    if(req.user.id == req.params.id){
+        User.findByIdAndUpdate(req.params.id,req.body,function(err,user){
+            req.flash('success','Profile Updated!!');
+            return res.redirect('back');
+        });
+    }else{
+        return res.status(401).send('Unauthorized');
+    }
 }
 
 // sign up page

@@ -9,6 +9,7 @@ console.log('User Express Router Loaded');
 
 router.get('/home',passport.checkAuthenticatedUser,userController.home);
 router.get('/profile/:id',passport.checkAuthenticatedUser,userController.profile);
+router.post('/update/:id',passport.checkAuthenticatedUser,userController.update);
 router.get('/sign-in',userController.signIn);
 router.get('/sign-up',userController.signUp);
 router.post('/create',userController.create);
