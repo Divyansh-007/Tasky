@@ -3,7 +3,7 @@
 }
 
 form{
-    margin-bottom: 17.5%;
+    margin-bottom: 11%;
 
     .label{
         margin-left: 28%;
@@ -40,6 +40,22 @@ form{
         border: 1px solid black;
         border-radius: 15px;
         padding: 10px;
+    }
+
+    .google_btn{
+        background-color: red;
+        text-align: center;
+        border-radius: 15px;
+        height: 2rem;
+        width: 16rem;
+        font-size: 1.5rem;
+        padding: 1rem;
+        margin: 1% 0 0 40%;
+    
+        a{
+            text-decoration: none;
+            color: white;
+        }
     }
 }
 
