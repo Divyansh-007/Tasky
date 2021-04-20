@@ -19,7 +19,10 @@ const session = require('express-session');
 
 // for authentication using passport.js
 const passport = require('passport');
+// local strategy
 const passportLocal = require('./config/passport-local-strategy');
+// google strategy
+const passportGoogle = require('./config/passport-google-oauth2-strategy');
 
 // to store cookie so as not to loose the user if server restarts
 const mongoStore = require('connect-mongo');
