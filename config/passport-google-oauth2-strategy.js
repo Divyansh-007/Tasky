@@ -1,13 +1,14 @@
 // required libraries and models
 const passport = require('passport');
 const googleStrategy = require('passport-google-oauth').OAuth2Strategy;
+const crypto = require('crypto');
 const User = require('../models/user');
 
 passport.use(new googleStrategy({
     clientID: '1023005453156-49o2tl4338pf04qhio2a135igghtg31j.apps.googleusercontent.com',
     clientSecret: 'EgoXdbCvhL4Pyb_cP3Q2oOmx',
     callbackURL: 'http://localhost:8000/user/auth/google/callback'
-}),function(accessToken,refreshToken,profile,done){
+},function(accessToken,refreshToken,profile,done){
     User.findOne({email: profile.emails[0].value}).exec(function(err,user){
         if(err){console.log('error in google-passport-startegy',err); return;}
 
@@ -39,6 +40,6 @@ passport.use(new googleStrategy({
             });
         }
     });
-});
+}));
 
 module.exports = passport;
