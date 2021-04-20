@@ -1,13 +1,12 @@
-body {
-  background: url("../images/main.jpg"); }
-  body #heading {
-    position: relative;
-    top: 25%;
-    margin: 10.6% 5%;
-    background: linear-gradient(319deg, #f9f4f4, #463f3fdb);
-    border-radius: 30px; }
-    body #heading h1 {
-      text-align: center;
-      color: #313335;
-      font-size: 5rem;
-      font-family: cursive; }
+h1 {
+  text-align: center;
+  margin: 10% 0 0 0;
+  font-size: 5rem;
+  color: salmon;
+  font-family: serif; }
+
+h2 {
+  margin: 0 0 13.5% 0;
+  text-align: center;
+  font-size: 4.5rem;
+  font-family: system-ui; }
