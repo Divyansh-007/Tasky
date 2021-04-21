@@ -9,8 +9,11 @@ h2 {
   font-family: serif;
   text-align: center; }
 
+.profile_img {
+  margin: -1% 0% 0% 47%; }
+
 #upd_form {
-  margin-bottom: 10%; }
+  margin-bottom: 5%; }
   #upd_form span {
     margin-left: 30%;
     font-size: 1.5rem; }

@@ -52,6 +52,9 @@ app.use(cookieParser());
 // use static files
 app.use(express.static('./assets'));
 
+// to use uploaded files
+app.use('/uploads',express.static(__dirname + '/uploads'));
+
 // to extract styles and scripts of subpages in layouts
 app.set('layout extractStyles',true);
 app.set('layout extractScripts',true);
