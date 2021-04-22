@@ -1,0 +1,19 @@
+<div>
+    <p>Hi, <%= task.user.fname %> <%= task.user.lname %> !!</p>
+    <p>You have created a task with following description on Tasky</p>
+    <table>
+        <tr>
+            <td> Description: </td>
+            <td> <%= task.description %> </td>
+        </tr>
+        <tr>
+            <td> Due Date: </td>
+            <td> <%= month_list[parseInt(task.date.substring(6,7)) - 1] + " " + task.date.substring(8,10) + " , " + task.date.substring(0,4) %> </td>
+        </tr>
+        <tr>
+            <td> Category: </td>
+            <td> <%= task.category %></td>
+        </tr>
+    </table>
+    <p>Thanks</p>
+</div>
