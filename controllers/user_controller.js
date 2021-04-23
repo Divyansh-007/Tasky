@@ -110,7 +110,11 @@ module.exports.create = function(req,res){
         if(err){console.log('error in finding the user for signing up'); return}
 
         if(!user){
-            User.create(req.body,function(er,user){
+            User.create({
+                fname: req.body.fname,
+                lname: req.body.lname,
+                email: req.body.email
+            },function(err,user){
                 if(err){console.log('error in creating the user while signing up'); return}
 
                 req.flash('success', 'Signed Up Successfully!!');

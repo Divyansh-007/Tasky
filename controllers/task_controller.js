@@ -1,6 +1,6 @@
 // importing model and libraries to be used
 const Task = require('../models/task');
-const taskMailer = require('../mailers/task_mailer');
+const taskMailer = require('../mailers/new_task_mailer');
 
 // create task with async await and mailer call
 module.exports.create = async function(req,res){
