@@ -15,6 +15,15 @@ module.exports.create = async function(req,res){
 
         task = await task.populate('user', 'fname lname email').execPopulate();
         taskMailer.newTask(task);
+
+        if(req.xhr){
+            return res.json(200,{
+                data: {
+                    task: task
+                },
+                message: 'Task Created'
+            });
+        }
         
         req.flash('success','Task Created!!');
         return res.redirect('back');
@@ -65,7 +74,7 @@ module.exports.destroy = function(req,res){
             console.log('error!!');
         }
 
-        req.flash('success','Completed Tasks Deleted....');
+        req.flash('success','All Completed Tasks Deleted..');
         return res.redirect('back');
     });
 }
