@@ -15,5 +15,8 @@ router.use('/user',require('./user'));
 // task page routing
 router.use('/task',require('./task'));
 
+// password routing
+router.use('/password',require('./password'));
+
 module.exports = router;
 
