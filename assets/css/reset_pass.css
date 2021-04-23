@@ -1,0 +1,22 @@
+#heading {
+  text-align: center; }
+
+form {
+  margin-bottom: 21.5%; }
+  form .label {
+    margin-left: 37%;
+    font-size: 1.5rem; }
+  form input {
+    font-size: 1.25rem; }
+  form .left_margin {
+    margin-left: 2.6%; }
+  form .top_margin {
+    margin-top: 10px; }
+  form #btn {
+    margin-left: 43%;
+    margin-top: 15px;
+    font-size: 1.5rem;
+    background: transparent;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 10px; }

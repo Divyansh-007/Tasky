@@ -1,0 +1,12 @@
+<link rel="stylesheet" href="/css/reset_pass.css">
+<h1 id="heading">Reset Password</h1>
+
+<form action="/password/update/<%= token %>" method="POST">
+    <span class="label">New Password: </span>
+    <input type="password" name="new_password" required class="left_margin">
+    <br>
+    <span class="label">Confirm Password: </span>
+    <input type="password" name="confirm_new_password" required class="top_margin">
+    <br>
+    <input type="submit" value="Update Password" id="btn">
+</form>
