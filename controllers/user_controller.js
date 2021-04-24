@@ -118,17 +118,6 @@ module.exports.cnfPassword = async function(req,res){
             return res.redirect('back');
         }
 
-        if(req.body.ver_code != req.params.code){
-            req.flash('error', 'Verification Code is invalid or has expired..');
-            return res.redirect('back');
-        }
-
-        if(req.body.new_password != req.body.confirm_new_password){
-            req.flash('error','Passwords do not match !!');
-            req.flash('error',' Try Again..');
-            return res.redirect('back');
-        }
-
         user.password = req.body.new_password;
         user.updatePasswordToken = undefined;
         user.updatePasswordExpires = undefined;

@@ -3,10 +3,11 @@
 
 p {
   text-align: center;
-  color: greenyellow; }
+  color: greenyellow;
+  font-size: 1.25rem; }
 
 form {
-  margin-bottom: 18.5%; }
+  margin-bottom: 12.5%; }
   form .label {
     margin-left: 32%;
     font-size: 1.5rem; }
