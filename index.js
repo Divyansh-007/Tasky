@@ -1,6 +1,10 @@
 // required libraries
 const express = require('express');
 
+// for environment variables to be used before deployment
+const env = require('./config/environment');
+const path = require('path');
+
 // for cookie
 const cookieParser = require('cookie-parser');
 
@@ -36,6 +40,7 @@ const flash = require('connect-flash');
 // to use middleware for flash messages
 const customMware = require('./config/middleware');
 
+if(env.name == 'development'){
 // using sass middleware
 app.use(sassMiddleware({
     src: './assets/scss',
@@ -44,6 +49,7 @@ app.use(sassMiddleware({
     outputStyle: 'extended',
     prefix: '/css'
 }));
+}
 
 // to use encoded input data and cookie
 app.use(express.urlencoded());
@@ -69,7 +75,7 @@ app.set('views', './views');
 // authentication
 app.use(session({
     name: 'tasky',
-    secret: 'blahblahblah',
+    secret: env.session_cookie_secret,
     saveUninitialized: false,
     resave: false,
     cookie:{
@@ -78,7 +84,7 @@ app.use(session({
     // using mongo store
     store: mongoStore.create(
         {
-            mongoUrl: 'mongodb+srv://divyansh:divyansh@cluster0.exyj1.mongodb.net/tasky-development',
+            mongoUrl: env.db,
             autoRemove: 'disabled'
         }
     )

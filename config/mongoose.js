@@ -1,8 +1,9 @@
 // required libraries
 const mongoose = require('mongoose');
+const env = require('./environment');
 
 // connecting database
-mongoose.connect('mongodb+srv://divyansh:divyansh@cluster0.exyj1.mongodb.net/tasky-development');
+mongoose.connect(env.db);
 
 const db = mongoose.connection;
 
