@@ -1,0 +1,39 @@
+#heading{
+    text-align: center;
+}
+
+p{
+    text-align: center;
+    color: greenyellow;
+}
+
+form{
+    margin-bottom: 18.5%;
+
+    .label{
+        margin-left: 32%;
+        font-size: 1.5rem;
+    }
+
+    input{
+        font-size: 1.25rem;
+    }
+
+    .left_margin{
+        margin-left: 2.6%;
+    }
+
+    .top_margin{
+        margin-top: 10px;
+    }
+
+    #btn{
+        margin-left: 43%;
+        margin-top: 15px;
+        font-size: 1.5rem;
+        background: transparent;
+        border: 1px solid black;
+        border-radius: 15px;
+        padding: 10px;
+    }
+}
