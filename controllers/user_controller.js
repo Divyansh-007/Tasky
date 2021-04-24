@@ -3,6 +3,9 @@ const User = require('../models/user');
 const Task = require('../models/task');
 const fs = require('fs');
 const path = require('path');
+const randomize = require('randomatic');
+const updatePassMailer = require('../mailers/update_pass_mailer');
+const confirmPassMailer = require('../mailers/confirm_pass_mailer');
 
 var monthList = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
@@ -76,6 +79,73 @@ module.exports.update = async function(req,res){
     // }
 }
 
+// password update page
+module.exports.updPassword = async function(req,res){
+    if(req.user.id == req.params.id){
+        try {
+            let user = await User.findById(req.params.id);
+
+            let code = randomize('A0',6);
+
+            user.updatePasswordCode = code;
+            user.updatePasswordExpires = Date.now() + 3600000;
+
+            user.save();
+
+            updatePassMailer.newMail(user,code);
+
+            return res.render('update_pass',{
+                title: 'Tasky | Reset Password',
+                code: code
+            });
+        }catch(err){
+            console.log(err);
+            req.flash('error', err);
+            return res.redirect('back');
+        }
+    }else{
+        return res.status(401).send('Unauthorized');
+    }
+}
+
+// confirm password
+module.exports.cnfPassword = async function(req,res){
+    try {
+        let user = await User.findOne({updatePasswordCode: req.params.code, updatePasswordExpires: {$gt: Date.now()}});
+
+        if(!user){
+            req.flash('error', 'Verification Code is invalid or has expired..');
+            return res.redirect('back');
+        }
+
+        if(req.body.ver_code != req.params.code){
+            req.flash('error', 'Verification Code is invalid or has expired..');
+            return res.redirect('back');
+        }
+
+        if(req.body.new_password != req.body.confirm_new_password){
+            req.flash('error','Passwords do not match !!');
+            req.flash('error',' Try Again..');
+            return res.redirect('back');
+        }
+
+        user.password = req.body.new_password;
+        user.updatePasswordToken = undefined;
+        user.updatePasswordExpires = undefined;
+
+        user.save();
+
+        confirmPassMailer.newMail(user);
+
+        req.flash('success','Password updated successfully!!');
+        return res.redirect(`/user/profile/${user._id}`);
+    }catch(err){
+        console.log('error in updating password',err);
+        req.flash('error', err);
+        return;
+    }
+}
+
 // sign up page
 module.exports.signUp = function(req,res){
     if(req.isAuthenticated()){
@@ -113,7 +183,8 @@ module.exports.create = function(req,res){
             User.create({
                 fname: req.body.fname,
                 lname: req.body.lname,
-                email: req.body.email
+                email: req.body.email,
+                password: req.body.password
             },function(err,user){
                 if(err){console.log('error in creating the user while signing up'); return}
 
