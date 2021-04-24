@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="/css/update_pass.css">
+<h1 id="heading">Reset Password</h1>
+<p>Verification Code has been sent to your email..</p>
+
+<form action="/user/password/confirm/<%= code %>" method="POST">
+    <span class="label">Verification Code: </span>
+    <input type="text" name="ver_code" placeholder="XXXXXX" required style="margin-left: 0.6%;">
+    <br>
+    <span class="label">New Password: </span>
+    <input type="password" name="new_password" required class="left_margin top_margin">
+    <br>
+    <span class="label">Confirm Password: </span>
+    <input type="password" name="confirm_new_password" required class="top_margin">
+    <br>
+    <input type="submit" value="Reset Password" id="btn">
+</form>
