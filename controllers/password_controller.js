@@ -56,17 +56,17 @@ module.exports.reset = function(req,res){
 
 // updating the password
 module.exports.update = async function(req,res){
-    if(req.body.new_password != req.body.confirm_new_password){
-        req.flash('error','Passwords do not match !!');
-        req.flash('error',' Try Again..');
-        return res.redirect('back');
-    }
-
     try {
         let user = await User.findOne({resetPasswordToken: req.params.token, resetPasswordExpires: {$gt: Date.now()}});
 
         if(!user){
             req.flash('error', 'Password reset token is invalid or has expired..');
+            return res.redirect('back');
+        }
+
+        if(req.body.new_password != req.body.confirm_new_password){
+            req.flash('error','Passwords do not match !!');
+            req.flash('error',' Try Again..');
             return res.redirect('back');
         }
 

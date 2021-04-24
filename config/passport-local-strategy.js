@@ -1,6 +1,5 @@
 // required libraries and models
 const passport = require('passport');
-
 const LocalStrategy = require('passport-local').Strategy;
 const User = require('../models/user');
 
