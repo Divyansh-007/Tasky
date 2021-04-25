@@ -1,3 +1,15 @@
+const fs = require('fs');
+const path = require('path');
+const rfs = require('rotating-file-stream');
+
+const logDirectory = path.join(__dirname,'../production_logs');
+fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory);
+
+const accessLogStream = rfs.createStream('access_log',{
+    interval: '1d',
+    path: logDirectory
+});
+
 const development = {
     name: 'development',
     assets_path: '/assets',
@@ -15,7 +27,11 @@ const development = {
     },
     google_client_id: '1023005453156-49o2tl4338pf04qhio2a135igghtg31j.apps.googleusercontent.com',
     google_client_secret: 'EgoXdbCvhL4Pyb_cP3Q2oOmx',
-    google_callback_url: 'http://localhost:8000/user/auth/google/callback'
+    google_callback_url: 'http://localhost:8000/user/auth/google/callback',
+    morgan:{
+        mode: 'dev',
+        options: {stream: accessLogStream}
+    }
 }
 
 const production = {
@@ -35,7 +51,11 @@ const production = {
     },
     google_client_id: process.env.TASKY_G_CLIENT_ID,
     google_client_secret: process.env.TASKY_G_CLIENT_SECRET,
-    google_callback_url : process.env.TASKY_G_CALLBACK_URL
+    google_callback_url : process.env.TASKY_G_CALLBACK_URL,
+    morgan:{
+        mode: 'combined',
+        options: {stream: accessLogStream}
+    }
 }
 
 module.exports = development;

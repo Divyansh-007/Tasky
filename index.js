@@ -5,6 +5,9 @@ const express = require('express');
 const env = require('./config/environment');
 const path = require('path');
 
+// for production log
+const logger = require('morgan');
+
 // for cookie
 const cookieParser = require('cookie-parser');
 
@@ -67,6 +70,9 @@ app.set('layout extractScripts',true);
 
 // use express layouts
 app.use(expressLayouts);
+
+// using logger
+app.use(logger(env.morgan.mode, env.morgan.options));
 
 // set up view engine and views
 app.set('view engine','ejs');
