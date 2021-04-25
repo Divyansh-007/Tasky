@@ -1,4 +1,4 @@
-// required libraries
+//required library
 const mongoose = require('mongoose');
 const env = require('./environment');
 
@@ -7,10 +7,10 @@ mongoose.connect(env.db);
 
 const db = mongoose.connection;
 
-// checking connection
+// checking database connection
 db.on('error',console.error.bind('error!!'));
 
-db.once('open',function(){
+db.once('open', function(){
     console.log('Successfully connected to database :: MongoDB');
 });
 
