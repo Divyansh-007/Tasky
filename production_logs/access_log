@@ -101,3 +101,9 @@
 [0mGET /password/forget [32m200[0m 128.571 ms - 2292[0m
 [0mPOST /password/generate-new [36m302[0m 145.436 ms - 118[0m
 [0mGET /password/forget [32m200[0m 39.164 ms - 2297[0m
+[0mGET /password/reset/033bbb90aa6940a5b29fc02f0302121025ec12b8 [32m200[0m 121.823 ms - 2201[0m
+[0mGET /password/reset/033bbb90aa6940a5b29fc02f0302121025ec12b8 [32m200[0m 92.394 ms - 2113[0m
+[0mPOST /password/update/033bbb90aa6940a5b29fc02f0302121025ec12b8 [36m302[0m 80.399 ms - 198[0m
+[0mGET /password/reset/033bbb90aa6940a5b29fc02f0302121025ec12b8 [32m200[0m 103.771 ms - 2409[0m
+[0mPOST /password/update/033bbb90aa6940a5b29fc02f0302121025ec12b8 [36m302[0m 95.581 ms - 46[0m
+[0mGET / [32m200[0m 39.289 ms - 2869[0m
