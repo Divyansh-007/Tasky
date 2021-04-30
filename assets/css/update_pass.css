@@ -1,27 +1,41 @@
-#heading {
-  text-align: center; }
+h2 {
+  font-size: 2rem;
+  margin: 2% 0 0 0; }
 
-p {
+.link {
   text-align: center;
-  color: greenyellow;
-  font-size: 1.25rem; }
+  margin-bottom: 27.5%; }
+  .link a {
+    text-decoration: none;
+    color: cornflowerblue; }
 
-form {
-  margin-bottom: 12.5%; }
-  form .label {
-    margin-left: 32%;
-    font-size: 1.5rem; }
-  form input {
-    font-size: 1.25rem; }
-  form .left_margin {
-    margin-left: 2.6%; }
-  form .top_margin {
-    margin-top: 10px; }
-  form #btn {
-    margin-left: 43%;
-    margin-top: 15px;
+#reset_form {
+  margin-bottom: 2%; }
+  #reset_form .label {
     font-size: 1.5rem;
-    background: transparent;
-    border: 1px solid black;
+    margin: 3% 0 0 0; }
+  #reset_form input[type=text], #reset_form input[type=password] {
+    font-size: 1.25rem;
+    width: 50%;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid #DDDDDD; }
+  #reset_form input[type=text]:focus, #reset_form input[type=password]:focus {
+    box-shadow: 0 0 5px #51cbee;
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid #51cbee; }
+  #reset_form #btn {
+    background: #6196f7;
+    color: white;
+    border: none;
+    outline: none;
+    font-size: 1.25rem;
     border-radius: 15px;
-    padding: 10px; }
+    padding: 10px;
+    margin: 3% 0 0 0; }
