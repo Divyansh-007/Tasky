@@ -1,40 +1,40 @@
-#heading {
-  text-align: center; }
-
-form {
-  margin-bottom: 11%; }
-  form .label {
-    margin-left: 28%;
-    font-size: 1.5rem; }
-  form input {
-    font-size: 1.25rem;
-    border: none;
-    border-bottom: 0.5px solid black; }
-  form .left_margin {
-    margin-left: 3%; }
-  form .top_margin {
+#form_box {
+  height: auto;
+  width: 20rem;
+  position: relative;
+  left: 38%;
+  margin: 5% 0 5% 0;
+  border: 1px solid black;
+  border-radius: 15px; }
+  #form_box .form_head {
+    text-align: center; }
+  #form_box form {
+    margin: 2%; }
+  #form_box input[type="text"] {
+    font-size: 1.5rem;
     margin-top: 10px; }
-  form .pass {
-    margin-left: 0.5%; }
-  form .cfm_pass {
-    margin-left: 36.25%; }
-  form #btn {
-    margin-left: 46%;
-    margin-top: 15px;
+  #form_box input[type="email"] {
     font-size: 1.5rem;
-    background: transparent;
-    border: 1px solid black;
-    border-radius: 15px;
-    padding: 10px; }
-  form .google_btn {
-    background-color: red;
-    text-align: center;
-    border-radius: 15px;
-    height: 2rem;
-    width: 16rem;
+    margin-top: 10px; }
+  #form_box input[type="password"] {
     font-size: 1.5rem;
-    padding: 1rem;
-    margin: 1% 0 0 40%; }
-    form .google_btn a {
-      text-decoration: none;
-      color: white; }
+    margin-top: 10px; }
+  #form_box input[type="text"], #form_box input[type=email], #form_box input[type=password] {
+    outline: none;
+    border: 1px solid #DDDDDD;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out; }
+  #form_box input[type="text"]:focus, #form_box [type=email]:focus, #form_box input[type=password]:focus {
+    box-shadow: 0 0 5px #51cbee;
+    border: 1px solid #51cbee; }
+  #form_box .btn {
+    font-size: 1.25rem;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background: cornflowerblue;
+    color: white;
+    padding: 0.6rem;
+    margin: 10% 0 5% 35%; }

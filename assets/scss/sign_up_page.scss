@@ -1,61 +1,56 @@
-#heading{
-    text-align: center;
-}
+#form_box{
+    height: auto;
+    width: 20rem;
+    position: relative;
+    left: 38%;
+    margin: 5% 0 5% 0;
+    border: 1px solid black;
+    border-radius: 15px;
 
-form{
-    margin-bottom: 11%;
-
-    .label{
-        margin-left: 28%;
+    .form_head{
+        text-align: center;
+    }
+    
+    form{
+        margin: 2%;
+    }
+    
+    input[type="text"] {
         font-size: 1.5rem;
-    }
-
-    input{
-        font-size: 1.25rem;
-        border: none;
-        border-bottom: 0.5px solid black;
-    }
-
-    .left_margin{
-        margin-left: 3%;
-    }
-
-    .top_margin{
         margin-top: 10px;
     }
-
-    .pass{
-        margin-left: 0.5%;
-    }
-
-    .cfm_pass{
-        margin-left: 36.25%;
-    }
-
-    #btn{
-        margin-left: 46%;
-        margin-top: 15px;
-        font-size: 1.5rem;
-        background: transparent;
-        border: 1px solid black;
-        border-radius: 15px;
-        padding: 10px;
-    }
-
-    .google_btn{
-        background-color: red;
-        text-align: center;
-        border-radius: 15px;
-        height: 2rem;
-        width: 16rem;
-        font-size: 1.5rem;
-        padding: 1rem;
-        margin: 1% 0 0 40%;
     
-        a{
-            text-decoration: none;
-            color: white;
-        }
+    input[type="email"] {
+        font-size: 1.5rem;
+        margin-top: 10px;
+    }
+    input[type="password"] {
+        font-size: 1.5rem;
+        margin-top: 10px;
+    }
+    
+    input[type="text"], input[type=email], input[type=password]{
+        outline: none;
+        border: 1px solid #DDDDDD;
+        -webkit-transition: all 0.30s ease-in-out;
+        -moz-transition: all 0.30s ease-in-out;
+        -ms-transition: all 0.30s ease-in-out;
+        -o-transition: all 0.30s ease-in-out;
+    }
+    
+    input[type="text"]:focus, [type=email]:focus, input[type=password]:focus{
+        box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+        border: 1px solid rgba(81, 203, 238, 1);
+    }
+    
+    .btn {
+        font-size: 1.25rem;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        background: cornflowerblue;
+        color: white;
+        padding: 0.6rem;
+        margin: 10% 0 5% 35%;
     }
 }
-

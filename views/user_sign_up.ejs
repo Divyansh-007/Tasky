@@ -1,21 +1,18 @@
 <link rel="stylesheet" href="/css/sign_up_page.css">
-<h1 id="heading"> <span> <i class="fas fa-user-plus fa-lg"></i> </span> Sign Up  </h1>
 
-<form action="/user/create" method="POST">
-    <span class="label">Name: </span>
-    <input type="text" name="fname" placeholder="John" required class="left_margin">
-    <input type="text" name="lname" placeholder="Smith" required>
-    <br>
-    <span class="label">Email: </span>
-    <input type="email" name="email" placeholder="johnSmith@gmail.com" required class="left_margin top_margin">
-    <br>
-    <span class="label">Password: </span>
-    <input type="password" name="password" placeholder="Password" required class="pass top_margin">
-    <br>
-    <input type="password" name="confirm_password" placeholder="Confirm Password" required class="cfm_pass top_margin">
-    <br>
-    <input type="submit" value="Sign Up" id="btn">
-    <div class="google_btn">
-        <a href="/user/auth/google">Sign Up / Sign In with <i class="fab fa-google"></i></a>
-    </div>
-</form>
+<div id="form_box">
+    <h2 class="form_head">Let's Get Started</h2>
+    <form action="/user/create" method="POST">
+        <input type="text" placeholder="first name" name="fname" required>
+        <br>
+        <input type="text" placeholder="last name" name="lname" required>
+        <br>
+        <input type="email" placeholder="email" name="email" required>
+        <br>
+        <input type="password" placeholder="password" name="password" required>
+        <br>
+        <input type="password" placeholder="confirm password" name="confirm_password" required>
+        <br>
+        <input type="submit" value="Sign Up" class="btn">
+    </form>
+</div>
