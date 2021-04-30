@@ -30,7 +30,7 @@ module.exports.generateNew = async function(req,res){
 
         forgetPassMailer.newMail(user,token);
 
-        req.flash('success','Password reset link has been sent to your email..');
+        req.flash('info','Password reset link has been sent to your email..');
         return res.redirect('back');
     }catch(err){
         console.log('error in generating new password');
@@ -80,7 +80,7 @@ module.exports.update = async function(req,res){
 
         req.flash('success','Password updated successfully!!');
         req.flash('success','Please Login..');
-        return res.redirect('/user/sign-in');
+        return res.redirect('/');
     }catch(err){
         console.log('error in updating password',err);
         req.flash('error', err);

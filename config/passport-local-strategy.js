@@ -73,7 +73,7 @@ passport.checkAuthenticatedUser = function(req, res, next){
         return next();
     }
 
-    return res.redirect('/user/sign-in');
+    return res.redirect('/');
 }
 
 // setting authenticated user

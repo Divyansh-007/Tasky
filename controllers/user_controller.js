@@ -179,7 +179,7 @@ module.exports.create = function(req,res){
 
                 req.flash('success', 'Signed Up Successfully!!');
                 req.flash('success',' Please Log In to Continue....');
-                return res.redirect('/user/sign-in');
+                return res.redirect('/');
             });
         }else{
             return res.redirect('back');
