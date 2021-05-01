@@ -28,6 +28,8 @@ const session = require('express-session');
 const passport = require('passport');
 // local strategy
 const passportLocal = require('./config/passport-local-strategy');
+// jwt strategy
+const passportJwt = require('./config/passport-jwt-strategy');
 // google strategy
 const passportGoogle = require('./config/passport-google-oauth2-strategy');
 
