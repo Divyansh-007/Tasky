@@ -18,5 +18,8 @@ router.use('/task',require('./task'));
 // password routing
 router.use('/password',require('./password'));
 
+// api routing
+router.use('/api',require('./api/index'));
+
 module.exports = router;
 
