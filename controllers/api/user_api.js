@@ -29,7 +29,7 @@ module.exports.createSession = async function(req,res){
 
 module.exports.home = async function(req,res){
     try {
-        let tasks = await Task.find({user: req.user});
+        let tasks = await Task.find({user: req.user}).populate('user','fname');
         
         if(tasks.length === 0){
             return res.status(200).json({
