@@ -11,12 +11,12 @@ let opts = {
 
 passport.use(new JWTStrategy(opts, function(jwtPayLoad, done){
     User.findById(jwtPayLoad._id, function(err,user){
-        if(err){console.log('error in finding user',err); return}
+        if(err){console.log('error in finding user',err); return;}
 
         if(user){
             return done(null,user);
         }else{
-            return done(nul,false);
+            return done(null,false);
         }
     });
 }));
