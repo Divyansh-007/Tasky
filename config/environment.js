@@ -58,5 +58,4 @@ const production = {
     }
 }
 
-module.exports = development;
-// module.exports = eval(process.env.NODE_ENV) === undefined ? development : eval(process.env.TASKY_ENVIRONMENT);
+module.exports = production;
