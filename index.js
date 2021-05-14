@@ -11,7 +11,7 @@ const logger = require('morgan');
 // for cookie
 const cookieParser = require('cookie-parser');
 
-const port = 8000;
+const port = process.env.PORT || 8000;
 
 // to use layouts
 const expressLayouts = require('express-ejs-layouts');
