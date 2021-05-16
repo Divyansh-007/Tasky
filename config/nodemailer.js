@@ -3,7 +3,7 @@ const ejs = require('ejs');
 const path = require('path');
 const env = require('./environment');
 
-let transporter = nodeMailer.createTransport(env.smtp_transpoter);
+let transporter = nodeMailer.createTransport(env.smtp_transporter);
 
 let renderTemplate = (data, relativePath) => {
     let mainHTML;
