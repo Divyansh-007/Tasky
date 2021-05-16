@@ -45,7 +45,6 @@ const flash = require('connect-flash');
 // to use middleware for flash messages
 const customMware = require('./config/middleware');
 
-if(env.name == 'development'){
 // using sass middleware
 app.use(sassMiddleware({
     src: './assets/scss',
@@ -54,7 +53,6 @@ app.use(sassMiddleware({
     outputStyle: 'extended',
     prefix: '/css'
 }));
-}
 
 // to use encoded input data and cookie
 app.use(express.urlencoded());
