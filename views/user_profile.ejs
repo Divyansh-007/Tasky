@@ -1,10 +1,10 @@
 <link rel="stylesheet" href="/css/user_profile.css">
 <h1>User / Profile</h1>
-<% if(user.avatar === undefined){ %> 
+<!-- <% if(user.avatar === undefined){ %> 
     <img class="profile_img" src="/images/no_user.png" width="100">
 <% }else{ %> 
     <img class="profile_img" src="<%= user.avatar %>" alt="<%= user.fname %>" width="100">
-<% } %>
+<% } %> -->
 
 <h2>Name: &nbsp; <span><%= user.fname %> <%= user.lname %> </span> </h2>
 <h2>Email : &nbsp; <span><%= user.email %> </span> </h2>
@@ -18,8 +18,8 @@
     <input type="email" name="email" placeholder="johnSmith@gmail.com" value="<%= user.email %>" required style="margin-top: 10px;">
     <a href="/user/password/update/<%= user.id %>" style="font-size: 1.25rem;">Reset Password</a>
     <br>
-    <span>Profile Image: </span>
+    <!-- <span>Profile Image: </span>
     <input type="file" name="avatar" placeholder="Profile Picture" style="margin-top: 10px;">
-    <br>
+    <br> -->
     <input type="submit" value="Update Profile" id="btn">
 </form>

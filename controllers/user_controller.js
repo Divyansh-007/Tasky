@@ -35,48 +35,48 @@ module.exports.profile = function(req,res){
 
 // update profile
 module.exports.update = async function(req,res){
-    if(req.user.id == req.params.id){
-        try{
-            let user = await User.findById(req.params.id);
-            User.uploadedAvatar(req,res,function(err){
-                if(err){console.log('error',err);}
-                
-                user.fname = req.body.fname;
-                user.lname = req.body.lname;
-                user.email = req.body.email;
-
-                if(req.file){
-
-                    if(user.avatar !== undefined){
-                        if(fs.existsSync(path.join(__dirname,'..',user.avatar))){
-                            fs.unlinkSync(path.join(__dirname,'..',user.avatar));    
-                        }
-                    }
-
-                    user.avatar = User.avatarPath + '/' + req.file.filename;
-                }
-                user.save();
-
-                req.flash('success','Profile Updated!!');
-                return res.redirect('back');
-            });
-        }catch(err){
-            console.log(err);
-            req.flash('error', err);
-            return res.redirect('back');
-        }
-    }else{
-        return res.status(401).send('Unauthorized');
-    }
-    
     // if(req.user.id == req.params.id){
-    //     User.findByIdAndUpdate(req.params.id,req.body,function(err,user){
-    //         req.flash('success','Profile Updated!!');
+    //     try{
+    //         let user = await User.findById(req.params.id);
+    //         User.uploadedAvatar(req,res,function(err){
+    //             if(err){console.log('error',err);}
+                
+    //             user.fname = req.body.fname;
+    //             user.lname = req.body.lname;
+    //             user.email = req.body.email;
+
+    //             if(req.file){
+
+    //                 if(user.avatar !== undefined){
+    //                     if(fs.existsSync(path.join(__dirname,'..',user.avatar))){
+    //                         fs.unlinkSync(path.join(__dirname,'..',user.avatar));    
+    //                     }
+    //                 }
+
+    //                 user.avatar = User.avatarPath + '/' + req.file.filename;
+    //             }
+    //             user.save();
+
+    //             req.flash('success','Profile Updated!!');
+    //             return res.redirect('back');
+    //         });
+    //     }catch(err){
+    //         console.log(err);
+    //         req.flash('error', err);
     //         return res.redirect('back');
-    //     });
+    //     }
     // }else{
     //     return res.status(401).send('Unauthorized');
     // }
+    
+    if(req.user.id == req.params.id){
+        User.findByIdAndUpdate(req.params.id,req.body,function(err,user){
+            req.flash('success','Profile Updated!!');
+            return res.redirect('back');
+        });
+    }else{
+        return res.status(401).send('Unauthorized');
+    }
 }
 
 // password update page
