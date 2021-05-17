@@ -13,7 +13,7 @@ router.post('/update/:id',passport.checkAuthenticatedUser,userController.update)
 router.get('/password/update/:id',passport.checkAuthenticatedUser,userController.updPassword);
 router.get('/generate-code/:id',userController.generateCode);
 router.post('/reset',userController.reset);
-router.get('/sign-in',userController.signIn);
+// router.get('/sign-in',userController.signIn);
 router.get('/sign-up',userController.signUp);
 router.post('/create',userController.create);
 router.post('/create-session',passport.authenticate(
