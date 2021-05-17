@@ -144,16 +144,16 @@ module.exports.signUp = function(req,res){
     });
 }
 
-// sign in page
-module.exports.signIn = function(req,res){
-    if(req.isAuthenticated()){
-        return res.redirect('/user/home');
-    }
+// // sign in page
+// module.exports.signIn = function(req,res){
+//     if(req.isAuthenticated()){
+//         return res.redirect('/user/home');
+//     }
 
-    return res.render('user_sign_in',{
-        title: 'Tasky | Sign In'
-    });
-}
+//     return res.render('user_sign_in',{
+//         title: 'Tasky | Sign In'
+//     });
+// }
 
 // signing up
 module.exports.create = function(req,res){
