@@ -16,3 +16,6 @@ A user can login him/her using email-password or using google. Also a user can c
 In the profile a user can update name / email id as needed and can also reset password if forgetten or already is logged in.
 
 ### Snapshots
+![snapshot 1](https://github.com/Divyansh-007/Tasky/blob/master/snapshots/one.JPG)
+![snapshot 2](https://github.com/Divyansh-007/Tasky/blob/master/snapshots/two.JPG)
+![snapshot 3](https://github.com/Divyansh-007/Tasky/blob/master/snapshots/three.JPG)
